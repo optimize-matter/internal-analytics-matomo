@@ -6,6 +6,9 @@ The Product Changelog at **[matomo.org/changelog](https://matomo.org/changelog)*
 
 ## Matomo 5.9.0
 
+### New APIs
+* `UsersManager.logoutUser` was added to sign a user out of all sessions.
+
 ### Deprecations
 * The jQuery UI `liveWidget` API (`$.fn.liveWidget`) is now deprecated and will be removed in Matomo 6. Use `Live.AutoRefreshWidget` vue component instead.
 
