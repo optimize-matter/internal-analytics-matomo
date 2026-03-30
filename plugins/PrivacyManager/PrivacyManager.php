@@ -424,6 +424,9 @@ class PrivacyManager extends Plugin
         $translationKeys[] = 'PrivacyManager_OptOutUseTracker';
         $translationKeys[] = 'PrivacyManager_OptOutUseStandalone';
         $translationKeys[] = 'PrivacyManager_OptOutCodeTypeExplanation';
+        $translationKeys[] = 'PrivacyManager_OptOutExplanationCookieDeletion';
+        $translationKeys[] = 'PrivacyManager_OptOutExplanationCookieDeletionCheck';
+        $translationKeys[] = 'PrivacyManager_OptOutExplanationIntro';
         $translationKeys[] = 'PrivacyManager_OptOutRememberToTest';
         $translationKeys[] = 'PrivacyManager_OptOutRememberToTestBody';
         $translationKeys[] = 'PrivacyManager_OptOutRememberToTestStep1';
@@ -461,6 +464,7 @@ class PrivacyManager extends Plugin
         $translationKeys[] = 'PrivacyManager_PleaseEnableVisitorLogsProfilesSites';
         $translationKeys[] = 'PrivacyManager_TeaserHeader';
         $translationKeys[] = 'PrivacyManager_TrackingOptOut';
+        $translationKeys[] = 'PrivacyManager_UsersOptOutIntro';
         $translationKeys[] = 'PrivacyManager_ShowIntro';
         $translationKeys[] = 'PrivacyManager_UnderstandingYourLegalObligations';
         $translationKeys[] = 'PrivacyManager_UnderstandingYourLegalObligationsBulletExemptions';
