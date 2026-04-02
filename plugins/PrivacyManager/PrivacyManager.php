@@ -331,6 +331,9 @@ class PrivacyManager extends Plugin
         $translationKeys[] = 'PrivacyManager_BackgroundColor';
         $translationKeys[] = 'PrivacyManager_BuildYourOwn';
         $translationKeys[] = 'PrivacyManager_DBPurged';
+        $translationKeys[] = 'PrivacyManager_DataProcessingAgreement';
+        $translationKeys[] = 'PrivacyManager_DataProcessingAgreementIntro1Linked';
+        $translationKeys[] = 'PrivacyManager_DataProcessingAgreementIntro2';
         $translationKeys[] = 'PrivacyManager_DataRetention';
         $translationKeys[] = 'PrivacyManager_DataRetentionInMatomo';
         $translationKeys[] = 'PrivacyManager_DataRetentionOverall';
@@ -395,8 +398,17 @@ class PrivacyManager extends Plugin
         $translationKeys[] = 'PrivacyManager_GdprChecklistDesc2';
         $translationKeys[] = 'PrivacyManager_GdprChecklists';
         $translationKeys[] = 'PrivacyManager_GdprOverview';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewApplicabilityCondition1';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewApplicabilityCondition2';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewApplicabilityCondition2Detail1';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewApplicabilityCondition2Detail2';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewApplicabilityIntro';
         $translationKeys[] = 'PrivacyManager_GdprOverviewIntro1';
         $translationKeys[] = 'PrivacyManager_GdprOverviewIntro2';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewIntro3';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewIntro4';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewKeyPoint1';
+        $translationKeys[] = 'PrivacyManager_GdprOverviewMatomoPersonalData';
         $translationKeys[] = 'PrivacyManager_GdprTools';
         $translationKeys[] = 'PrivacyManager_GdprToolsOverviewHint';
         $translationKeys[] = 'PrivacyManager_GdprToolsPageIntro1';
