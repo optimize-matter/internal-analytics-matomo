@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace Piwik\Plugins\PrivacyManager;
 
 use Piwik\Columns\Dimension;
-use Piwik\Container\StaticContainer;
 use Piwik\DataTable;
 use Piwik\DataTable\DataTableInterface;
 use Piwik\DataTable\Row;
@@ -20,8 +19,6 @@ use Piwik\Metrics;
 use Piwik\Plugin\Metric;
 use Piwik\Plugin\ProcessedMetric;
 use Piwik\Plugin\Report;
-use Piwik\Plugins\FeatureFlags\FeatureFlagManager;
-use Piwik\Plugins\PrivacyManager\FeatureFlags\PrivacyCompliance;
 use Piwik\Plugins\PrivacyManager\Settings\DataRoundingEnabled;
 use Piwik\Request;
 use Piwik\Site;
@@ -630,11 +627,6 @@ class DataRounding
     private static function isDataRoundingEnabledForSite(?int $idSite): bool
     {
         try {
-            $featureFlagManager = StaticContainer::get(FeatureFlagManager::class);
-            if (!$featureFlagManager->isFeatureActive(PrivacyCompliance::class)) {
-                return false;
-            }
-
             return DataRoundingEnabled::getInstance($idSite)->getValue() === true;
         } catch (Throwable $e) {
             return false;

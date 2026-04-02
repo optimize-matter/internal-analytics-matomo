@@ -12,10 +12,8 @@ declare(strict_types=1);
 namespace Piwik\Plugins\PrivacyManager\tests\System;
 
 use Piwik\API\Request;
-use Piwik\Config;
 use Piwik\DataTable;
 use Piwik\DataTable\Row;
-use Piwik\Plugins\PrivacyManager\FeatureFlags\PrivacyCompliance;
 use Piwik\Policy\CnilPolicy;
 use Piwik\Tests\Framework\Fixture;
 use Piwik\Tests\Fixtures\UITestFixture;
@@ -95,14 +93,12 @@ class DataRoundingCoverageTest extends SystemTestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->setComplianceFeatureFlag(true);
         CnilPolicy::setActiveStatus(null, true);
     }
 
     public function tearDown(): void
     {
         CnilPolicy::setActiveStatus(null, false);
-        $this->setComplianceFeatureFlag(false);
 
         parent::tearDown();
     }
@@ -450,16 +446,6 @@ class DataRoundingCoverageTest extends SystemTestCase
     public static function getPathToTestDirectory(): string
     {
         return __DIR__;
-    }
-
-    private function setComplianceFeatureFlag(bool $enabled): void
-    {
-        $config = Config::getInstance();
-        $featureFlag = new PrivacyCompliance();
-        $featureFlagConfig = $featureFlag->getName() . '_feature';
-        $config->FeatureFlags = [
-            $featureFlagConfig => $enabled ? 'enabled' : 'disabled',
-        ];
     }
 
     /**
