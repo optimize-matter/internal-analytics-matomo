@@ -250,6 +250,9 @@ class SegmentSelectorStore {
 
   private isSegmentSharedWithMeBySuperUser(segment: SavedSegment) {
     const { userContext } = this.privateState;
+    if (userContext.hasSuperUserAccess) {
+      return false;
+    }
     return segment.login !== userContext.login
       && Number(segment.enable_all_users) === 1;
   }
@@ -467,12 +470,11 @@ class SegmentSelectorStore {
       label,
       tooltip: label,
       showStarButton: false,
+      showStarPlaceholder: !this.privateState.isUserAnonymous,
       showEditButton: false,
+      showEditPlaceholder: this.privateState.segmentAccess === 'write',
       showCompareButton: context.comparisonAvailable,
-      compareButtonClass: [
-        'segmentAction compareSegment allVisitsCompareSegment',
-        this.privateState.segmentAccess === 'write' ? 'allVisitsCompareSegment--write' : '',
-      ].join(' ').trim(),
+      compareButtonClass: 'segmentAction compareSegment allVisitsCompareSegment',
       compareTitle: allVisitsCompareState.title,
       compareState: allVisitsCompareState.state,
     };
@@ -506,7 +508,10 @@ class SegmentSelectorStore {
       definition: segment.definition,
       label: labelText,
       tooltip: tooltipText,
-      showStarButton: true,
+      // Intentionally hide the star control for anonymous users rather than
+      // showing a disabled state; this is the agreed product behavior.
+      showStarButton: !this.privateState.isUserAnonymous,
+      isStarred: this.normalizeStarredState(segment.starred),
       starTitle: this.getStarSegmentTitle(segment, canEdit),
       starState: canEdit ? '' : 'disabled',
       showEditButton: this.privateState.segmentAccess === 'write',

@@ -55,7 +55,7 @@ describe("SegmentSelectorEditorTest", function () {
 
     async function searchForSegment(searchTerm)
     {
-        const selector = '.segmentationContainer .segmentFilter';
+        const selector = '.segmentationContainer .searchInputField';
 
         await page.waitForSelector(selector);
         await page.evaluate((inputSelector) => {
@@ -158,14 +158,14 @@ describe("SegmentSelectorEditorTest", function () {
         expect(await page.screenshotSelector(selectorsToCapture)).to.matchImage('1b_selector_unstarred');
     });
 
-    it("should have disabled star for anonymous users", async function() {
+    it("should hide star for anonymous users", async function() {
         await switchToAnonymousUser();
         await page.goto('about:blank');
         await page.goto(url);
         await page.waitForNetworkIdle();
         await page.click('.segmentationContainer .title');
-        const firstSegmentStarState = await page.evaluate(() => $('.segmentList li:nth-of-type(2) .starSegment').attr('data-state') || '');
-        expect(firstSegmentStarState).to.equal('disabled');
+        const firstSegmentStarCount = await page.evaluate(() => $('.segmentList li:nth-of-type(2) .starSegment').length);
+        expect(firstSegmentStarCount).to.equal(0);
     });
 
     it("should open segment editor when edit link clicked for existing segment", async function() {
@@ -174,7 +174,7 @@ describe("SegmentSelectorEditorTest", function () {
         await page.goto(url);
         await page.click('.segmentationContainer .title');
         await page.evaluate(function() {
-            $('.segmentList .editSegment:first').click();
+            $('.segmentList button.editSegment:first').click();
         });
         await page.waitForNetworkIdle();
         const isPanelExpanded = await page.evaluate(() => $('.segmentEditorPanel').hasClass('expanded'));
