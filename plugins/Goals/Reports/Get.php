@@ -216,6 +216,7 @@ class Get extends Base
                     $lastPeriod        = PeriodFactory::build(Piwik::getPeriod(), $lastPeriodDate);
                     $lastPrettyDate    = ($currentPeriod instanceof Month ? $lastPeriod->getLocalizedLongString(
                     ) : $lastPeriod->getPrettyString());
+                    $metricTranslations = $view->config->translations;
 
                     $view->config->compute_evolution = function (
                         $columns,
@@ -224,7 +225,8 @@ class Get extends Base
                         $currentPrettyDate,
                         $lastPrettyDate,
                         $previousDataRow,
-                        $idSite
+                        $idSite,
+                        $metricTranslations
                     ) {
                         $value      = reset($columns);
                         $columnName = key($columns);
@@ -238,14 +240,6 @@ class Get extends Base
                         $formatter             = new MetricFormatter();
                         $currentValueFormatted = $value;
                         $pastValueFormatted    = $pastValue;
-                        foreach ($metrics as $metric) {
-                            if ($metric->getName() === $columnName) {
-                                $pastValueFormatted    = $metric->format($pastValue, $formatter);
-                                $currentValueFormatted = $metric->format($value, $formatter);
-                                break;
-                            }
-                        }
-
                         if (strpos($columnName, 'revenue') !== false) {
                             $currencySymbol        = Site::getCurrencySymbolFor($idSite);
                             $pastValueFormatted    = NumberFormatter::getInstance()->formatCurrency(
@@ -258,12 +252,22 @@ class Get extends Base
                                 $currencySymbol,
                                 GoalManager::REVENUE_PRECISION
                             );
+                        } else {
+                            foreach ($metrics as $metric) {
+                                if ($metric->getName() === $columnName) {
+                                    $pastValueFormatted    = $metric->format($pastValue, $formatter);
+                                    $currentValueFormatted = $metric->format($value, $formatter);
+                                    break;
+                                }
+                            }
                         }
 
-                        $columnTranslations = Metrics::getDefaultMetricTranslations();
-                        $columnTranslation  = '';
-                        if (array_key_exists($columnName, $columnTranslations)) {
-                            $columnTranslation = $columnTranslations[$columnName];
+                        $columnTranslation = $metricTranslations[$columnName] ?? '';
+                        if ($columnTranslation === '') {
+                            $columnTranslations = Metrics::getDefaultMetricTranslations();
+                            if (array_key_exists($columnName, $columnTranslations)) {
+                                $columnTranslation = $columnTranslations[$columnName];
+                            }
                         }
 
                         return [
