@@ -9,18 +9,21 @@
   <div
     ref="root"
     class="dashboard-manager piwikSelector borderedControl piwikTopControl dashboardSettings"
-    v-expand-on-click="{expander: 'expander'}"
+    v-expand-on-click="{expander: 'expander', onExpand: onExpand, onClosed: onClosed}"
     @click="onOpen()"
+    @focusout="onFocusOut"
   >
-    <a
+    <button
+      type="button"
       class="title"
       v-tooltips
       :title="translate('Dashboard_ManageDashboard')"
       tabindex="4"
       ref="expander"
     >
-      <span class="icon icon-dashboard-customize"></span>{{ translate('Dashboard_Dashboard') }}
-    </a>
+      <span class="icon icon-dashboard-customize"></span>
+      {{ translate('Dashboard_ManageDashboard') }}
+    </button>
     <div
       class="dropdown positionInViewport"
       v-tooltips="{show: false}"
@@ -29,39 +32,54 @@
         <li
           v-for="(title, actionName) of generalActions"
           :key="actionName"
-          @click="onClickAction($event, actionName)"
-          class="generalAction"
-          :disabled="isActionDisabled[actionName] ? 'disabled' : undefined"
-          :title="actionTooltips[actionName] || undefined"
-          :data-action="actionName"
         >
-          {{ translate(title) }}
+          <button
+            type="button"
+            tabindex="4"
+            @click="onClickAction($event, actionName)"
+            class="generalAction"
+            :disabled="isActionDisabled[actionName] ? 'disabled' : undefined"
+            :title="actionTooltips[actionName] || undefined"
+            :data-action="actionName"
+          >
+            {{ translate(title) }}
+          </button>
         </li>
         <li>
-          <div class="manageDashboard">{{ translate('Dashboard_ManageDashboard') }}</div>
-
-          <ul>
-            <li
-              class="exportDashboard"
-              data-action="exportDashboard"
-              @click="onClickExportDashboard()"
-            >
-              {{ translate('Dashboard_ExportThisDashboard') }}
-            </li>
-            <li
-              v-for="(title, actionName) of dashboardActions"
-              :key="actionName"
-              @click="onClickAction($event, actionName)"
-              :disabled="isActionDisabled[actionName] ? 'disabled' : undefined"
-              :title="actionTooltips[actionName] || undefined"
-              :data-action="actionName"
-            >
-              {{ translate(title) }}
-            </li>
-          </ul>
+          <button
+            type="button"
+            tabindex="4"
+            class="exportDashboard"
+            data-action="exportDashboard"
+            @click="onClickExportDashboard()"
+          >
+            {{ translate('Dashboard_ExportThisDashboard') }}
+          </button>
         </li>
-        <li class="addWidget" @click="openAddWidget()">
-          <div class="addWidget-label">{{ translate('Dashboard_AddAWidget') }}</div>
+        <li
+          v-for="(title, actionName) of dashboardActions"
+          :key="actionName"
+        >
+          <button
+            type="button"
+            tabindex="4"
+            @click="onClickAction($event, actionName)"
+            :disabled="isActionDisabled[actionName] ? 'disabled' : undefined"
+            :title="actionTooltips[actionName] || undefined"
+            :data-action="actionName"
+          >
+            {{ translate(title) }}
+          </button>
+        </li>
+        <li class="addWidget">
+          <button
+            type="button"
+            tabindex="4"
+            class="addWidget-button"
+            @click="openAddWidget()"
+          >
+            <span class="icon icon-add1"></span>{{ translate('Dashboard_AddAWidget') }}
+          </button>
         </li>
       </ul>
     </div>
@@ -187,6 +205,41 @@ export default defineComponent({
       } else {
         this.isActionDisabled.removeDashboard = false;
         this.actionTooltips.removeDashboard = undefined;
+      }
+    },
+    onExpand(event: MouseEvent|KeyboardEvent) {
+      // Clicks triggered via keyboard (Enter/Space on the button) have detail === 0,
+      // mouse clicks have detail >= 1. Only shift focus into the menu for keyboard opens.
+      if ((event as MouseEvent).detail !== 0) {
+        return;
+      }
+      this.$nextTick(() => {
+        const firstAction = (this.$refs.root as HTMLElement)
+          .querySelector<HTMLButtonElement>('.submenu button:not([disabled])');
+        if (firstAction) {
+          firstAction.focus();
+        }
+      });
+    },
+    onFocusOut(event: FocusEvent) {
+      const root = this.$refs.root as HTMLElement;
+      const newTarget = event.relatedTarget as Node | null;
+      if (newTarget && root.contains(newTarget)) {
+        return;
+      }
+      root.classList.remove('expanded');
+    },
+    onClosed(event: MouseEvent|KeyboardEvent) {
+      // Return focus to the trigger when the dropdown was dismissed via the Escape
+      // key, so keyboard users keep their place. Enter/Space activation of buttons
+      // produces a MouseEvent (synthetic click) and is handled by the browser
+      // leaving focus on the activated element.
+      if (!(event instanceof KeyboardEvent)) {
+        return;
+      }
+      const expander = this.$refs.expander as HTMLElement | undefined;
+      if (expander) {
+        expander.focus();
       }
     },
     openAddWidget() {
