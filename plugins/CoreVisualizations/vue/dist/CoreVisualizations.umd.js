@@ -118,6 +118,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8bbf__;
 __webpack_require__.r(__webpack_exports__);
 
 // EXPORTS
+__webpack_require__.d(__webpack_exports__, "EvolutionBadge", function() { return /* reexport */ EvolutionBadge; });
 __webpack_require__.d(__webpack_exports__, "MetricValue", function() { return /* reexport */ MetricValue; });
 __webpack_require__.d(__webpack_exports__, "SeriesPicker", function() { return /* reexport */ SeriesPicker; });
 __webpack_require__.d(__webpack_exports__, "MetricsPicker", function() { return /* reexport */ MetricsPicker; });
@@ -142,40 +143,204 @@ if (typeof window !== 'undefined') {
 // EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","root":"Vue"}
 var external_commonjs_vue_commonjs2_vue_root_Vue_ = __webpack_require__("8bbf");
 
+// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionBadge.vue?vue&type=template&id=94a77dd2
+
+const _hoisted_1 = ["title"];
+const _hoisted_2 = {
+  class: "evolutionBadge__icon",
+  "aria-hidden": "true"
+};
+const _hoisted_3 = {
+  class: "evolutionBadge__value"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_EvolutionTrendIcon = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveComponent"])("EvolutionTrendIcon");
+  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("span", {
+    class: Object(external_commonjs_vue_commonjs2_vue_root_Vue_["normalizeClass"])(["evolutionBadge", _ctx.directionClass]),
+    title: _ctx.tooltip || undefined
+  }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", _hoisted_2, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createVNode"])(_component_EvolutionTrendIcon, {
+    class: "evolutionTrendIcon",
+    direction: _ctx.direction
+  }, null, 8, ["direction"])]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", _hoisted_3, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.formattedPercent), 1)], 10, _hoisted_1);
+}
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionBadge.vue?vue&type=template&id=94a77dd2
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionTrendIcon.vue?vue&type=template&id=14185072
+
+const EvolutionTrendIconvue_type_template_id_14185072_hoisted_1 = {
+  key: 0,
+  viewBox: "0 0 16 16"
+};
+const EvolutionTrendIconvue_type_template_id_14185072_hoisted_2 = /*#__PURE__*/Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("path", {
+  d: "M3.77344 11L8.27344 5L12.7734 11H3.77344Z",
+  fill: "currentColor"
+}, null, -1);
+const EvolutionTrendIconvue_type_template_id_14185072_hoisted_3 = [EvolutionTrendIconvue_type_template_id_14185072_hoisted_2];
+const _hoisted_4 = {
+  key: 1,
+  viewBox: "0 0 16 16"
+};
+const _hoisted_5 = /*#__PURE__*/Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("path", {
+  d: "M3.77344 6L8.27344 12L12.7734 6H3.77344Z",
+  fill: "currentColor"
+}, null, -1);
+const _hoisted_6 = [_hoisted_5];
+const _hoisted_7 = {
+  key: 2,
+  viewBox: "0 0 16 16"
+};
+const _hoisted_8 = /*#__PURE__*/Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("rect", {
+  x: "3",
+  y: "7",
+  width: "10",
+  height: "2",
+  fill: "currentColor"
+}, null, -1);
+const _hoisted_9 = [_hoisted_8];
+function EvolutionTrendIconvue_type_template_id_14185072_render(_ctx, _cache, $props, $setup, $data, $options) {
+  return _ctx.direction === 'up' ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("svg", EvolutionTrendIconvue_type_template_id_14185072_hoisted_1, EvolutionTrendIconvue_type_template_id_14185072_hoisted_3)) : _ctx.direction === 'down' ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("svg", _hoisted_4, _hoisted_6)) : (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("svg", _hoisted_7, _hoisted_9));
+}
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionTrendIcon.vue?vue&type=template&id=14185072
+
+// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-typescript/node_modules/cache-loader/dist/cjs.js??ref--15-0!./node_modules/babel-loader/lib!./node_modules/@vue/cli-plugin-typescript/node_modules/ts-loader??ref--15-2!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionTrendIcon.vue?vue&type=script&lang=ts
+
+/* harmony default export */ var EvolutionTrendIconvue_type_script_lang_ts = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
+  name: 'EvolutionTrendIcon',
+  props: {
+    direction: {
+      type: String,
+      required: true,
+      validator: value => ['up', 'down', 'neutral'].indexOf(value) !== -1
+    }
+  }
+}));
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionTrendIcon.vue?vue&type=script&lang=ts
+ 
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionTrendIcon.vue
+
+
+
+EvolutionTrendIconvue_type_script_lang_ts.render = EvolutionTrendIconvue_type_template_id_14185072_render
+
+/* harmony default export */ var EvolutionTrendIcon = (EvolutionTrendIconvue_type_script_lang_ts);
+// CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-typescript/node_modules/cache-loader/dist/cjs.js??ref--15-0!./node_modules/babel-loader/lib!./node_modules/@vue/cli-plugin-typescript/node_modules/ts-loader??ref--15-2!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionBadge.vue?vue&type=script&lang=ts
+
+
+/* harmony default export */ var EvolutionBadgevue_type_script_lang_ts = (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["defineComponent"])({
+  name: 'EvolutionBadge',
+  components: {
+    EvolutionTrendIcon: EvolutionTrendIcon
+  },
+  props: {
+    // the change to display, either a number (eg 4, -4) or a pre-formatted
+    // string as emitted by Sparklines/Config.php (eg "4%", "-4%")
+    percent: {
+      type: [Number, String],
+      required: true
+    },
+    // when true the colour is inverted, so a decrease reads as positive (eg bounce rate)
+    isLowerValueBetter: {
+      type: Boolean,
+      default: false
+    },
+    // raw value difference (currentValue - pastValue); the authoritative source of the
+    // arrow direction when available, falling back to the sign of percent otherwise
+    trend: {
+      type: Number,
+      default: undefined
+    },
+    tooltip: {
+      type: String,
+      default: ''
+    }
+  },
+  setup(props) {
+    const changeValue = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["computed"])(() => {
+      if (typeof props.trend === 'number' && !Number.isNaN(props.trend)) {
+        return props.trend;
+      }
+      // only the sign matters here. Fold the localised minus (U+2212, eg fi/sv)
+      // to ASCII so a coarse parse of the formatted percent gets the sign right.
+      const numeric = parseFloat(String(props.percent).replace('\u2212', '-').replace(',', '.').replace(/[^0-9.+-]/g, ''));
+      return Number.isNaN(numeric) ? 0 : numeric;
+    });
+    const direction = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["computed"])(() => {
+      if (changeValue.value > 0) {
+        return 'up';
+      }
+      if (changeValue.value < 0) {
+        return 'down';
+      }
+      return 'neutral';
+    });
+    // the arrow direction always reflects the actual value change, while the colour
+    // (positive/negative) reflects whether that change is good or bad for the metric
+    const directionClass = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["computed"])(() => {
+      if (direction.value === 'neutral') {
+        return 'evolutionBadge--neutral';
+      }
+      const increased = direction.value === 'up';
+      const isPositive = props.isLowerValueBetter ? !increased : increased;
+      return isPositive ? 'evolutionBadge--positive' : 'evolutionBadge--negative';
+    });
+    const formattedPercent = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["computed"])(() => {
+      const label = typeof props.percent === 'number' ? `${props.percent}%` : String(props.percent).trim();
+      const sign = label.charAt(0);
+      if (changeValue.value > 0 && sign !== '+' && sign !== '-') {
+        return `+${label}`;
+      }
+      return label;
+    });
+    return {
+      direction,
+      directionClass,
+      formattedPercent
+    };
+  }
+}));
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionBadge.vue?vue&type=script&lang=ts
+ 
+// CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/EvolutionBadge/EvolutionBadge.vue
+
+
+
+EvolutionBadgevue_type_script_lang_ts.render = render
+
+/* harmony default export */ var EvolutionBadge = (EvolutionBadgevue_type_script_lang_ts);
 // CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/MetricValue/MetricValue.vue?vue&type=template&id=bdedef58
 
-const _hoisted_1 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_1 = {
   class: "metricValue"
 };
-const _hoisted_2 = ["title"];
-const _hoisted_3 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_2 = ["title"];
+const MetricValuevue_type_template_id_bdedef58_hoisted_3 = {
   class: "metricValue__primary"
 };
-const _hoisted_4 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_4 = {
   class: "metricValue__number"
 };
-const _hoisted_5 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_5 = {
   key: 0,
   class: "metricValue__secondary"
 };
-const _hoisted_6 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_6 = {
   class: "metricValue__secondaryValue"
 };
-const _hoisted_7 = {
+const MetricValuevue_type_template_id_bdedef58_hoisted_7 = {
   key: 0,
   class: "metricValue__secondaryLabel"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+function MetricValuevue_type_template_id_bdedef58_render(_ctx, _cache, $props, $setup, $data, $options) {
   const _directive_tooltips = Object(external_commonjs_vue_commonjs2_vue_root_Vue_["resolveDirective"])("tooltips");
-  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", _hoisted_1, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["withDirectives"])((Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", {
+  return Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", MetricValuevue_type_template_id_bdedef58_hoisted_1, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["withDirectives"])((Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", {
     class: Object(external_commonjs_vue_commonjs2_vue_root_Vue_["normalizeClass"])(["metricValue__title", {
       'metricValue__title--documented': !!_ctx.documentation
     }]),
     title: _ctx.documentation || null
-  }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createTextVNode"])(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.title), 1)], 10, _hoisted_2)), [[_directive_tooltips, {
+  }, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createTextVNode"])(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.title), 1)], 10, MetricValuevue_type_template_id_bdedef58_hoisted_2)), [[_directive_tooltips, {
     duration: 200,
     delay: 200
-  }]]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("div", _hoisted_3, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", _hoisted_4, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.value), 1), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "evolution")]), _ctx.hasSecondary ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", _hoisted_5, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", _hoisted_6, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.secondaryValue), 1), _ctx.secondaryLabel ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("span", _hoisted_7, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.secondaryLabel), 1)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)]);
+  }]]), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("div", MetricValuevue_type_template_id_bdedef58_hoisted_3, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", MetricValuevue_type_template_id_bdedef58_hoisted_4, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.value), 1), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["renderSlot"])(_ctx.$slots, "evolution")]), _ctx.hasSecondary ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("div", MetricValuevue_type_template_id_bdedef58_hoisted_5, [Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", MetricValuevue_type_template_id_bdedef58_hoisted_6, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.secondaryValue), 1), _ctx.secondaryLabel ? (Object(external_commonjs_vue_commonjs2_vue_root_Vue_["openBlock"])(), Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementBlock"])("span", MetricValuevue_type_template_id_bdedef58_hoisted_7, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(_ctx.secondaryLabel), 1)) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)])) : Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createCommentVNode"])("", true)]);
 }
 // CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/MetricValue/MetricValue.vue?vue&type=template&id=bdedef58
 
@@ -220,7 +385,7 @@ var external_CoreHome_ = __webpack_require__("19dc");
 
 
 
-MetricValuevue_type_script_lang_ts.render = render
+MetricValuevue_type_script_lang_ts.render = MetricValuevue_type_template_id_bdedef58_render
 
 /* harmony default export */ var MetricValue = (MetricValuevue_type_script_lang_ts);
 // CONCATENATED MODULE: ./node_modules/@vue/cli-plugin-babel/node_modules/cache-loader/dist/cjs.js??ref--13-0!./node_modules/@vue/cli-plugin-babel/node_modules/thread-loader/dist/cjs.js!./node_modules/babel-loader/lib!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist/templateLoader.js??ref--6!./node_modules/@vue/cli-service/node_modules/cache-loader/dist/cjs.js??ref--1-0!./node_modules/@vue/cli-service/node_modules/vue-loader-v16/dist??ref--1-1!./plugins/CoreVisualizations/vue/src/SeriesPicker/SeriesPicker.vue?vue&type=template&id=7c1adaf7
@@ -423,7 +588,7 @@ const MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_6 = ["type", "ch
 const MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_7 = /*#__PURE__*/Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", {
   "aria-hidden": "true"
 }, null, -1);
-const _hoisted_8 = {
+const MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_8 = {
   class: "metrics-picker__title"
 };
 function MetricsPickerOptionsvue_type_template_id_0bdfb6f4_render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -452,7 +617,7 @@ function MetricsPickerOptionsvue_type_template_id_0bdfb6f4_render(_ctx, _cache, 
       checked: !!_ctx.rowStates[rowConfig.matcher],
       onChange: $event => _ctx.optionSelected(rowConfig.matcher, _ctx.rowStates),
       onKeydown: Object(external_commonjs_vue_commonjs2_vue_root_Vue_["withKeys"])(Object(external_commonjs_vue_commonjs2_vue_root_Vue_["withModifiers"])($event => _ctx.optionSelected(rowConfig.matcher, _ctx.rowStates), ["prevent"]), ["enter"])
-    }, null, 40, MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_6), MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_7, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", _hoisted_8, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(rowConfig.label), 1)]);
+    }, null, 40, MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_6), MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_7, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["createElementVNode"])("span", MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_8, Object(external_commonjs_vue_commonjs2_vue_root_Vue_["toDisplayString"])(rowConfig.label), 1)]);
   }), 128))], 8, MetricsPickerOptionsvue_type_template_id_0bdfb6f4_hoisted_1);
 }
 // CONCATENATED MODULE: ./plugins/CoreVisualizations/vue/src/MetricsPicker/MetricsPickerOptions.vue?vue&type=template&id=0bdfb6f4
@@ -916,6 +1081,7 @@ SingleMetricViewvue_type_script_lang_ts.render = SingleMetricViewvue_type_templa
  * @link    https://matomo.org
  * @license https://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
  */
+
 
 
 
